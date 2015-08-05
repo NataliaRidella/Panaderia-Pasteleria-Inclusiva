@@ -1,0 +1,1497 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #4a87ee !default;
+$calm:                            #43cee6 !default;
+$balanced:                        #66cc33 !default;
+$energized:                       #f0b840 !default;
+$assertive:                       #ef4e3a !default;
+$royal:                           #8a6de9 !default;
+$dark:                            #444 !default;
+*/
+* {
+    margin: 0;
+    padding: 0;
+	/*text-transform: uppercase;*/
+    font-family: Montserrat;
+}
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+@import "www/lib/scss/_media-queries.scss";
+@import "www/css/fonts/fonts.css";
+
+/*@font-face {
+	font-family: Ionicons;
+	src: url(../lib/ionic/fonts/ionicons.eot?v=1.5.2);
+	src: url(../lib/ionic/fonts/ionicons.eot?v=1.5.2#iefix) format("embedded-opentype"), url(../lib/ionic/fonts/ionicons.ttf?v=1.5.2) format("truetype"), url(../lib/ionic/fonts/ionicons.woff?v=1.5.2) format("woff"), url(../lib/ionic/fonts/ionicons.svg?v=1.5.2#Ionicons) format("svg");
+	font-weight: 400;
+	font-style: normal
+}*/
+@font-face {
+	font-family: 'MuseoSlab500';
+	src: url('fonts/museo_slab_500-webfont.eot');
+	src: url('fonts/museo_slab_500-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/museo_slab_500-webfont.woff') format('woff'), url('fonts/museo_slab_500-webfont.ttf') format('truetype'), url('fonts/museo_slab_500-webfont.svg#MuseoSlab500') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Lobster';
+	src: url('fonts/Lobster/Lobster.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Límites de tamaños de pantalla */
+$break-small: 600px;
+$break-medium: 750px;
+$break-large: 1025px;
+$break-h-small: 400px;
+$break-h-xsmall: 240px;
+
+$shadowColour: rgba(0, 0, 0, .6);
+
+h1 .h1, .bar.bar-custom .title, .bar .title {
+    text-transform: uppercase;
+    font-size: 1em;
+    @include max-screen($break-h-small) {
+        font-size: 0.6em;
+    }
+    @include min-screen($break-medium) {
+        font-size: 1.4em;
+    }
+    @include min-screen($break-large) {
+        font-size: 1.7em;
+    }
+
+}
+
+h3 .h3 {
+    font-size: 70px;
+}
+
+h2 .h2 {
+    margin: 0.25em auto;
+    text-shadow: 5px 5px 10px rgba(255,255,255,0.5);
+}
+
+h1:first-child, .h1:first-child, h2:first-child, .h2:first-child, h3:first-child, .h3:first-child {
+     margin-top: 1%; 
+}
+
+p {
+    text-transform: uppercase;
+}
+
+body {
+    font-size: 1.3em;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+textarea, input {
+    border-radius: 2em!important;
+}
+
+.watermark {
+    opacity: 0.5; /* Firefox, Chrome, Safari, Opera, IE >= 9 (preview) */
+    filter:alpha(opacity=50); /* for <= IE 8 */
+}
+
+.editText, .editTextArea, .editNumber {
+    padding-left: 1.3em!important;
+    border-style: 2px solid black;
+    border-radius: 7px;
+    transition:0.5s linear all;
+}
+.editNumber {
+    min-width: 3em;
+    max-width: 7em;
+}
+.editText {
+    width: 10em!important;
+}
+.editTextArea {
+    width: 80%!important;
+    height: 6em;
+    @include max-screen($break-small) {
+        height: 12em;
+    }
+}
+
+.editText.ng-invalid, .editTextArea.ng-invalid, .editNumber.ng-invalid {
+    background: white;
+    /*background: #f6e3ce;*/
+    color: black;
+}
+
+.editNumber.ng-invalid {
+  background: white;
+  color: black; 
+  max-width:100px;
+}
+
+
+.editText:focus, .editTextArea:focus, .editNumber:focus {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+img.photo-face {
+    width: 96px;
+    height: 96px;
+}
+
+div.wrapper {
+    float: left; /* important */  
+    position: relative; /* important(so we can absolutely position the description div */  
+}
+
+div.imgOverlayLink {
+    position: absolute; /* absolute position (so we can position it where we want)*/  
+    top: 0px; /* position will be on bottom */  
+    right: 0px;
+    width: auto;
+    height: 11px;
+    /* styling bellow */  
+    background-color: lightgrey;
+    font-family: 'tahoma';
+    font-weight: bold;
+    font-size: 11px;
+    color: black;  
+    opacity:0.4; /* transparency */  
+    filter:alpha(opacity=40); /* IE transparency */ 
+}
+
+.imgOverlayLink_text {
+    /*padding:10px;*/
+    margin: 0px;
+}
+
+ion-content  {
+    background-image: url('../img/logo_png-01.png'), url('../img/Fondo11.png');
+	background-repeat: no-repeat, repeat;
+	background-position: center 75%, center;
+	background-size: 25%;
+}
+
+ion-footer-bar {
+    background-image: url('../img/Fondo11.png');
+	background-repeat: repeat;
+	background-position: center;
+}
+.receta-content.scroll-content {
+    .scroll {
+        height: 100%;
+    }
+}
+
+.dash-content {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+.edicion-receta-content, .edicion-perfil-content {
+    font-family: 'Lobster'; //MuseoSlab500
+    font-weight: 400!important;
+}
+.dash-header {
+  text-align: center;
+  font-size: 1.9em;
+}
+.bar-footer {
+    background-color: #ffe2ac;
+    display: inline;
+}
+
+ion-footer-content.bar.bar-footer.dash-footer.has-tabs {
+    background-image: url('../img/Fondo11.png');
+    background-repeat: repeat;
+    background-position: center;
+    text-align: center;
+    width: 100%;
+    display: inline;
+}
+.dash-image {
+  display: inline-block;
+  border-radius: 25px;
+  box-shadow: 4px 4px #888888;
+  max-width: 29%;
+}
+
+img.thumbnail {
+    height: 25px;
+    width: 25px;
+}
+
+img.user-thumb {
+    top: 1px;
+    height: 95%;
+    width: auto;
+    display: inline;
+    border-radius: 5px;
+}
+
+.hide-fade.ng-hide-add, .hide-fade.ng-hide-remove {
+  -webkit-transition:all linear 0.5s;
+  -moz-transition:all linear 0.5s;
+  -o-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+  display:block!important;
+}
+.hide-fade.ng-hide-add.ng-hide-add-active,
+.hide-fade.ng-hide-remove {
+  opacity:0;
+}
+.hide-fade.ng-hide-add,
+.hide-fade.ng-hide-remove.ng-hide-remove-active {
+  opacity:1;
+}
+
+.system-icons {
+    color: white;
+    font-size: 1.5em;
+    height: 100%;
+    z-index: 999;
+    padding-left: 5px; padding-right: 5px;
+    padding-top: 0 ; padding-bottom: 0;
+    opacity: 0.7;
+    i {
+        z-index: 1000;
+    }
+}
+.system-icons:active {
+    opacity: 1;
+}
+.fixed-div {
+    top: 42px;
+    margin-top: 42px;
+}
+.right {
+    text-align: right;
+}
+ion-nav-view {
+  background-color: transparent;
+}
+
+.dash-content, .tabs, {
+    * {
+        text-transform: uppercase;
+    }    
+}
+
+.modalidad-content, .seleccion-content, .button-list-content {
+	padding: .25em;
+    display: inline-block;
+    border-radius: 0.5em;
+    text-align: center;
+    text-transform: uppercase;
+}
+.button {
+    font-family: sans-serif;
+    border-radius: 1em;
+}
+.button.ng-binding {
+	border-radius: 1em;
+}
+/*button {
+}*/
+.button-selection {
+    display: inline-block;
+    vertical-align: top;
+    min-height: 200px;
+    min-width: 190px;
+    padding: 0.25em;
+    text-align: center;
+    width: auto;
+    height: auto;
+}
+
+.option-list {
+	vertical-align: top;
+	max-height: 960px;
+	min-height: 250px;
+	min-width: 250px;
+	padding: .25em;
+	text-align: center;
+	width: auto;
+	height: auto;
+}
+
+.option-item {
+    display: inline-block;
+    border: none;
+    text-align: center;
+    background: none;
+	vertical-align: top;
+	padding: 2%;
+	/*-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+    border-radius: none;*/
+    
+    h3 {
+        vertical-align: bottom;
+        line-height: normal;
+        font-size: 1.5em;
+        @include max-screen($break-small) {
+            font-size: 1em;
+        }
+        @include min-screen($break-large) {
+            font-size: 2em;
+        }
+    }
+    
+    p {
+        vertical-align: top;
+        line-height: normal;
+        font-size: 1.1em;
+        @include max-screen($break-h-small) {
+            font-size: 1em;
+        }
+        @include min-screen($break-large) {
+            font-size: 1.5em;
+        }
+    }
+
+    img {
+        border-radius: 95px;
+        border: solid 5px white;
+        width: 190px;
+        height: 190px;
+    }
+}
+.option-item:hover,
+	.option-item:focus,
+	.option-item:active,
+    .button-selection:hover,
+	.button-selection:focus,
+	.button-selection:active {
+        box-shadow: 0 0 8px $shadowColour;
+}
+
+
+.destaque {
+    text-shadow: 2px 2px #ffff00;
+}
+
+.paso-receta {
+	width: 100%;
+    height: 100%;
+    margin-bottom: 120px;
+    /*display: block;*/
+    .titulo-paso {
+        /*height: 20%;*/
+        margin-top: 10px;
+        display: block;
+    }
+
+    .centro-paso {
+        display: block;
+        width: 100%;
+        height: 100%;
+        vertical-align: top;
+        .imagen-paso {
+            display: block;
+            width: 25%;
+            /*max-width: 50%;
+            min-width: 30%;*/
+            height: auto;
+            text-align: center;
+            z-index: 900;
+        }
+        
+        .texto-paso {
+            position: absolute;
+            top: 7%;
+            left: 0;
+            background-color: transparent;
+            width: 100%;
+            height: auto;
+            font-weight: bold;
+            text-align: justify;
+            padding-top: 5%;
+            z-index: 901;
+            overflow-y: scroll;
+            @include max-screen($break-medium) {
+                top: 10%;
+            }
+
+            p, input {
+                overflow: visible;
+                /*width: 100%;*/
+                /*margin: 0 0 10px;*/
+                height: auto;
+                text-shadow: 2px 2px #ffe2ac;
+                text-transform: uppercase;
+                margin-right: 5%;
+                margin-left: 260px;
+                line-height: 1.3em;
+                font-size: 1em;
+                @include min-screen($break-medium) {
+                    margin-left: 300px;
+                    line-height: 1.4em;
+                    font-size: 1.1em;
+                }
+                @include min-screen($break-large) {
+                    margin-left: 330px;
+                    line-height: 1.3em;
+                    font-size: 1.4em;
+                }
+                @include max-screen($break-small) {
+                    margin-top: 10px;
+                    margin-left: 210px;
+                    line-height: 1.2em;
+                    font-size: 0.8em;
+                }
+                @include max-screen($break-h-small) {
+                    margin-top: 10px;
+                    margin-left: 150px;
+                    line-height: 1.1em;
+                    font-size: 0.6em;
+                }
+                
+            }
+        }
+    }
+}
+
+.centro.centro-paso {
+    display: block;
+}
+.separacion-botones {
+    padding-top: 10px;
+    .button-energizedblue.boton-ajustable {
+        font-size: 1em;
+        @include max-screen($break-small) {
+            font-size: 0.8em;
+        }
+    }
+}
+
+.portada-receta {
+        .imagen-portada {
+            /*width: 30%;*/
+            height: auto;
+            text-align: center;
+            z-index: 900;
+        }
+        .texto-portada {
+            margin-left: 20%;
+            background-color: transparent;
+            display: inline-block;
+
+            .top-label {
+                display: block;
+                overflow: visible;
+            }
+
+            i, span, div, label, select {
+                display: inline-block;
+            }
+            label {
+                word-wrap: break-word;
+            }
+        }
+}
+.pie-paso { 
+    background-image: url('../img/Fondo11.png');
+    background-repeat: repeat;
+    width: 100%;
+    font-size: 0.6em;
+    display: inline;
+    @include max-screen($break-small) {
+        font-size: 0.5em;
+    }
+    @include min-screen($break-medium) {
+        font-size: 0.7em;
+    }
+    .buttons {
+       display: initial;
+    }
+
+    .pie-centro {
+        width: 100%;
+        padding-left: 115px;
+        padding-right: 115px;
+        /*margin-bottom: 20px;*/
+    }
+}
+
+.button.button-energized.boton-salir {
+    position: absolute;
+    top: 5px;
+    width: 150px;
+    margin: auto;
+    @include max-screen($break-small) {
+        width: auto;
+        line-height: 10px;
+        padding: 5px;
+    }
+
+}
+
+.gridContainer {
+    display: -webkit-flex;
+    display: flex;
+}
+
+.gridStyle {
+    display: inline-block;
+    border: 1px solid rgb(212,212,212);
+    font-size: 0.7em;
+    width: 99%;
+    overflow-y: visible;
+    text-transform: none;
+    div, span {
+        text-transform: none;
+    }
+}
+
+.gridBackground {
+    height: 500px;
+    background: none;
+}
+.gridStyle.default{
+    min-height: 150px;
+    max-height: 250px;
+}
+.gridStyle.big{
+    height: 450px;
+    max-height: 450px;
+}
+
+.gridStyle.full{
+    height: 350px;
+    max-height: 350px;
+}
+.inline-block {
+    display: inline-block;
+}
+div.item-sexo {
+    margin: auto;
+    width: auto;
+}
+.item-sexo {
+    display: inline-block;
+    
+}
+.item.item-radio.item-sexo {
+    font-size: 1.3em;
+    @include max-screen($break-small) {
+        font-size: 1em;
+    }
+    @include max-screen($break-h-small) {
+        font-size: 0.7em;
+    }
+}
+.item-title {
+    font-size: 1em;
+    text-align: center;
+    color: #B80000;
+    text-shadow: 2px;
+    font-variant: small-caps;
+}
+
+.card .item, .list-inset .item, .padding > .list .item, .padding-horizontal > .list .item {
+    margin-right: 10px;
+    margin-left: 10px; 
+    margin-bottom: 5px;
+    border-style: outset;
+    text-align: center;
+    font-style: oblique;
+    width:270px;
+    font-size: .7em; 
+    font-weight:bold;
+    border-radius:2em;
+    float:left;
+}
+
+.card .item:first-child, .list-inset .item:first-child, .padding > .list .item:first-child {
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em; 
+}
+
+.card .item:last-child, .list-inset .item:last-child, .padding > .list .item:last-child {
+  border-bottom-left-radius: 2em;
+  border-bottom-right-radius: 2em; 
+}
+
+#usuarios {
+    min-height: 80px;
+    max-height: 100px;
+}
+
+.my-input {
+  transition:0.5s linear all;
+  background: white;
+}
+.my-input.ng-invalid {
+  background: red;
+  color:white;
+}
+
+.usuario {
+    font-size: 0.8em;
+}
+.popup-body #mensaje-error {
+    font-size: 0.7em;
+}
+
+.popup-buttons {
+    button {
+        word-wrap: normal;
+    }
+}
+
+form i.icon.error {
+  color: #ef4e3a; 
+}
+
+form input + i.icon.error {
+  display: none;
+  margin-left: 8px;
+}
+
+form.ng-submitted input.ng-invalid + i.icon.error {
+  display: block;
+}
+
+form .has-error {
+  border-left: 5px solid #cc2511;
+}
+
+form .has-success {
+  border-left: 5px solid #3d8b3d;
+}
+
+form.ng-submitted input.ng-valid + i.icon.error {
+  display: none;
+}
+
+.soundOff {
+    @extend .ion-volume-mute;
+}
+
+.soundOn {
+    @extend .ion-android-volume;
+}
+
+div.header-right-buttons {
+    position: fixed;
+    right: 2px;
+    max-width: 45%;
+    vertical-align: middle;
+}
+
+div.header-left-buttons {
+    position: fixed;
+    left: 2px;
+    max-width: 45%;
+    vertical-align: middle;
+}
+
+.icon-industrial {
+    background-image: transparent url('img/factory.png') no-repeat fixed center;
+}
+
+#grid {
+    display: grid;
+    grid-template-areas: "title board"
+               "stats board"
+               "score ctrls";
+    grid-template-columns: auto minmax(min-content, 1fr);
+    grid-template-rows: auto minmax(min-content, 1fr) auto
+}
+
+.subheader {
+    width: 100%;
+    background-color: #ffe2ac;
+    img {
+        top: 0px;
+        max-height: 40px;
+    }
+}
+
+.about-content {
+    text-transform: none;
+    padding-left: 2%;
+    
+    h2 {
+        text-align: center;
+    }
+    h2, h3{
+        font-family: 'Lobster';
+    }
+    
+    p {
+        text-transform: none;
+        width: 90%;
+        text-align: justify;
+    }
+}
+
+.italic {
+    font-style: italic;
+}
+
+.titulo-agradecimientos, .titulo-integrantes {
+    font-weight: bold;
+    text-shadow: 2px;
+    text-transform: capitalize;
+}
+
+.agradecimiento, .integrantes {
+    display: inline-block;
+    width: 100px !important;
+    height: 140px !important;
+    vertical-align: top;
+    text-transform: none;
+
+    span {
+        color: black;
+        vertical-align: bottom;
+        display: block;
+        font-size: 0.6em;
+        line-height: 0.9em;
+        overflow: visible;
+        text-transform: capitalize;
+        font-family: serif;
+        text-shadow: 1px 1px rgba(0,0,0,0.6);
+    }
+    
+    .agradecimiento-img, .integrante-img {
+        display: block;
+        width: 100%;
+        min-height: 70px;
+        height: auto;
+        position: relative;
+        overflow: hidden;
+        padding: 34.37% 0 0 0;
+        margin-left: 5px;
+        
+        img {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+}
+
+.integrante-img {
+    vertical-align: top;
+    img {
+        border-radius: 10px;
+    }
+}
+
+.green {
+    background-color: green;
+    color: white;
+}
+
+.yellow {
+    background-color: yellow;
+    color: black;
+}
+
+.orange {
+    background-color: orange;
+    color: black;
+}
+
+.red {
+    background-color: red;
+    color: white;
+}
+
+.no-background {
+    background: none;
+    div {
+        background: none; 
+    }
+    a {
+        background: none; 
+    }
+}
+.transparent-background {
+    background-color: transparent;
+    div {
+        background-color: transparent;
+    }
+    a {
+        background-color: transparent;
+    }
+}
+
+.circle-content {
+	border-radius: 169px;
+	overflow: hidden;
+	/*width: 250px;
+	height: 250px;*/
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: center;
+	background-size: cover;
+	border: solid 6px white;
+    
+    width: 180px;
+    height: 180px;
+    @include max-screen($break-small) {
+        width: 130px;
+        height: 130px;
+    }
+    @include min-screen($break-large) {
+        width: 250px;
+        height: 250px;
+    }
+    img {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 150px; 
+        @include max-screen($break-small) {
+            width: 110px;
+            height: 110px;
+        }
+        @include min-screen($break-large) {
+            width: 230px;
+            height: 230px;
+        }
+    }
+
+}
+
+.item-complex .item-content, .item-radio .item-content {
+    background-color: transparent;
+    overflow: visible;
+}
+
+.item-complex {
+	width: 40%;
+	margin: 5%;
+	position: relative;
+	float: left;
+	min-width: 205px;
+    @include max-screen($break-small) {
+	   width: 90%;
+    }
+    
+    .texto-visible {
+        overflow: visible;
+    }
+}
+.item.item-label.texto-visible {
+    display: block;
+}
+
+.item-content {
+    padding: 10px;
+}
+
+.item-texto-visible.item-admin, .usuario.item-admin {
+    background-color:rgba(0, 0, 0, 0.1);
+    font-size: 0.8em;
+}
+
+.pic-receta {
+	border-radius: 169px;
+	overflow: hidden;
+    width: 200px;
+    height: 200px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: center;
+	background-size: cover;
+	border: solid 10px white;
+    @include max-screen($break-small) {
+        width: 150px;
+        height: 150px;
+    }
+    @include min-screen($break-medium) {
+        width: 270px;
+        height: 270px;
+    }
+}
+.pic-receta-paso {
+	border-radius: 210px;
+	overflow: hidden;
+    width: 230px;
+    height: 230px;
+	position: relative;
+    top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: center;
+	background-size: cover;
+	border: solid 10px white;
+    @include min-screen($break-large) {
+        width: 300px;
+        height: 300px;
+    }
+    @include min-screen($break-medium) {
+        width: 270px;
+        height: 270px;
+    }
+    @include max-screen($break-small) {
+        width: 180px;
+        height: 180px;
+    }
+    @include max-screen($break-h-small) {
+        width: 120px;
+        height: 120px;
+    }
+
+}
+
+.pic-receta-paso-edicion {
+  border-radius: 210px;
+  overflow: hidden;
+  width: 210px;
+  height: 210px;
+  position: left;
+  margin-left: 5%;
+  margin-top:1%;
+  background-image:center;
+  background-size: cover;
+  border: solid 10px white; 
+    @include max-screen($break-small) {
+        width: 160px;
+        height: 160px;
+    }
+    @include max-screen($break-h-small) {
+        width: 110px;
+        height: 110px;
+    }
+    @include min-screen($break-medium) {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+.button.botones-default {
+    min-width: 10em;
+    height: 3em;
+    margin-left: 5%;
+    font-size: .9em; 
+}
+
+.button.botones-edicion-receta {
+    font-family: serif;
+    font-weight: bold;
+}
+.button.button-cambiarimagen {
+    width: auto;
+    height: 2em;
+    /*margin-left: 27%; */
+    margin-right: 30%;
+}
+
+.button.button-energizedblue, .button.button-energized, .button {
+    text-transform: uppercase;
+}
+
+.button.button-energizedblue {
+    opacity: 0.7;
+	color: white;
+    margin: 1px;
+	font-family: 'Lucida';
+	font-size:1em;
+	background-color: #B29B71 !important;
+	background-image: url('../img/pattern.png');
+/*	-webkit-transition: opacity;
+	-webkit-transition-timing-function: ease-out;
+	-webkit-transition-duration: 250ms;
+	-moz-transition: opacity;
+	-moz-transition-timing-function: ease-out;
+	-moz-transition-duration: 250ms;*/
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 2px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #B29B71;
+	border-right-color: #B29B71;
+	border-bottom-color: #B29B71;
+	border-left-color: #B29B71;
+	width:auto;
+}
+
+.button.button-nuevareceta {
+    width:10em;
+    height:3em;
+    position:right;
+    font-size:.6em;
+    margin-right:3%;
+    background-color: green;
+    color: white;
+}
+.button.button-energizedblue:active, .button.button-nuevareceta:active {
+    opacity: 1;
+}
+
+/*.button.button-volver {
+    border-color: #d39211;
+    background-color: #f0b840;
+    color: #fff;
+    min-width:8em;
+    font-size:.6em;
+}*/
+
+
+.button.button-energized {
+    min-width: 8em;
+    font-size: 0.9em;
+}
+
+.boton-nav {
+    height: inherit;
+    min-width: 113px;
+}
+.buttons {
+    height: 100%!important;
+    display: inline;
+}
+.siguiente {
+	position: fixed;
+	bottom: 50px;
+	right: 20px;
+}
+.anterior { 
+	position: fixed;
+	bottom: 50px;
+	left: 20px;
+}
+.player {
+	width: 0;
+	height: 0;
+	overflow: hidden
+}
+.paso-receta.final {
+	text-align: center;
+	text-transform : uppercase;
+    h3 {
+        margin-top: 0;
+    }
+}
+//Creo que no es necesario
+/*.paso-receta {
+	padding-bottom: 200px;
+}*/
+
+.item {
+	background: none;
+	border: none;
+}
+.item.usuario {
+    border-style: outset;
+}
+
+h3.ng-binding {
+	vertical-align: bottom;
+	line-height: normal;
+	font-size: 1.2em;
+}
+.portada {
+	background-image: center;
+	background-size: cover;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+.wrapper-paso-receta {
+	width: 99%;
+	margin: auto;
+	min-width: 300px;
+}
+.portada h2, .titulo-paso h2 {
+	text-align: center;
+	position: relative;
+	vertical-align: bottom;
+	line-height: normal;
+	font-family: sans-serif;
+	margin: auto;
+    margin-right: 10%;
+	color: black;
+	text-transform : uppercase;
+    width: 90%;
+    font-size: 1.3em;
+    @include max-screen($break-small) {
+        font-size: 1em;
+    }
+    @include min-screen($break-large) {
+        font-size: 1.7em;
+    }
+    @include min-screen($break-medium) {
+        font-size: 1.5em;
+    }
+}
+.item-input {
+	width: 100%;
+}
+/*.item-input#nombre {
+    span {
+        width: 110px;
+    }
+}*/
+
+.item-input.small {
+    min-width: 150px;
+    max-width: 320px;
+}
+.item-input.medium {
+    min-width: 250px;
+    max-width: 550px;
+}
+.item-input.big {
+    min-width: 400px;
+    max-width: 1280px;
+    @include max-screen($break-small) {
+        min-width: 250px;
+        max-width: 550px;
+    }
+}
+
+.input-label {
+    font-size: 1.3em;
+	/*font-weight: bold;*/
+}
+
+.input-label.fixed-label {
+    width: auto;
+    display: inline;
+    font-size: 1.3em;
+    @include max-screen($break-small) {
+        font-size: 0.8em;
+    }
+    @include min-screen($break-medium) {
+        font-size: 1.4em;
+    }
+
+}
+    
+.input-label-paso {
+  font-size: 30px;
+  font-weight: bold;
+  font-style:italic;
+  margin-left:45%;
+}
+
+
+.item-input input {
+    background-color: white;   
+}
+
+.user-type {
+    text-shadow: 2px 1px black;
+    font-family: sans-serif;
+    font-size:1.3em;
+    text-align:center;
+    font-style:italic;
+    @include max-screen($break-small) {
+        text-shadow: 1px 1px black;
+        font-size: 0.8em;
+    }
+    @include max-screen($break-h-small) {
+        text-shadow: none;
+        font-size: 0.5em;
+    }
+}
+
+select {
+    text-align: left;
+	/*max-width: 300px;*/
+	height: 35px;
+	font-family: sans-serif;
+	text-transform: uppercase;
+    text-align:center;
+/*    margin-left: 10%;*/
+}
+p.ng-binding {
+	font-family: sans-serif;
+	color: black;
+	font-size: 15px;
+	/*text-transform: none;*/
+	font-weight: normal;
+}
+.col {
+	width: 50%;
+	position: relative;
+	float: left;
+    text-transform: uppercase;
+    text-align: center;
+	margin-top: 30px;
+}
+.col .button {
+	margin: auto;
+	position: relative;
+}
+/*.siguiente {
+	position: fixed;
+	bottom: 50px;
+	right: 20px;
+}
+.anterior {
+	position: fixed;
+	bottom: 50px;
+	left: 20px;
+}*/
+.siguiente, .anterior {
+    height: 100%!important;
+}
+.player {
+	width: 0;
+	height: 0;
+	overflow: hidden
+}
+
+.bar.bar-custom {
+	border-color: #b2b2b2;
+	background: white;
+ 	background-image: url(../img/Fondo10.png);
+	background-repeat: repeat;
+}
+
+.bar.bar-custom .title {
+	color: white;
+	font-family: sans-serif;
+/*	font-size: 1.5em;
+    @include max-screen($break-small) {
+        font-size: 1em;
+    }
+    @include min-screen($break-medium) {
+        font-size: 1.7em;
+    }*/
+}
+
+.q-select {
+	width: 8em;
+    display: inline-block;
+}
+.center-text {
+    text-align: center;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    /*text-align: center;
+    margin: auto;*/
+}
+
+// Estilos ng-grid modificados
+.ngPagerControl {
+    display: -webkit-inline-box;
+}
+//
+
+.input-types-list {
+    width: 400px;
+    .item.item-input {
+        width: 100%;
+    }
+}
+
+.edicion-footer {
+    display: inline;
+    .button {
+        font-size: 13px;
+        @include max-screen($break-small) {
+            font-size: 9px !important;
+        }
+        @include max-screen($break-medium) {
+            font-size: 11px !important;
+        }
+        @include min-screen($break-large) {
+            font-size: 14px !important;
+        }   
+    }
+}
+
+.item.item-stacked-label {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.button.button-energizedblue.boton-receta, .button.button-energized.boton-receta {
+    text-transform: uppercase;
+    font-size: 0.7em;
+    min-height: 35px;
+    @include min-screen($break-medium) {
+        font-size: 0.9em;
+    }
+    @include max-screen($break-small) {
+        font-size: 0.6em;
+    }
+}
+
+.al-frente {
+    z-index: 1000;
+}
+
+.botones-audio {
+    display: block;
+    margin-left: 10%;
+    margin-top: 20%;
+    z-index: 999;
+    width: 230px;
+    height: 8em;
+    @include min-screen($break-large) {
+        width: 300px;
+    }
+    @include min-screen($break-medium) {
+        width: 270px;
+    }
+    @include max-screen($break-small) {
+        width: 180px;
+        margin-top: 40%;
+    }
+    @include max-screen($break-h-small) {
+        width: 120px;
+    }
+    
+    span {
+        display: block;
+        text-align: center;
+        font-size: 1em;
+        text-transform: uppercase;
+        @include max-screen($break-small) {
+            font-size: 0.8em;
+        }
+        @include max-screen($break-h-small) {
+            font-size: 0.6em;
+        }
+    }
+    button {
+        font-size: 3em;
+        z-index: 1000;
+        @include max-screen($break-small) {
+            font-size: 2em;
+        }
+
+    }
+}
+
+.table-button {
+    font-weight: bold;
+    font-size: large;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.icono-modo {
+    height: 32px;
+    width: auto;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 0;
+}
+
+.boton-salir-app {
+    vertical-align: top;
+    position: absolute;
+    bottom: 3px;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    width: 50px;
+    height: 44px;
+    color: black;
+    font-size: 12px;
+    line-height: 14px;
+    background-color: transparent;
+    z-index: 1000;
+    opacity: 0.5;
+    i {
+        display: block;
+        height: 28px;
+        font-size: 28px;
+    }
+    span {
+        vertical-align: baseline;
+        text-transform: uppercase;
+    }
+}
+.boton-salir-app:active {
+    opacity: 1;
+}
+
+img.little-logo {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+}
+
+i.little-logo {
+    font-size: 100%;
+}
+
+.botones-footer {
+    width: 100%;
+}
+.botonera {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    button {
+        font-size: .7em;
+        padding-left: 1em;
+        margin-bottom: 1em;
+        width: 150px;
+        height: 39px;
+    }
+}
+.item.item-input.medium#Audio {
+    margin-bottom: 20px;
+    display: flex;
+    @include max-screen($break-small) {
+        display: block;
+        input {
+            width: 80%!important;
+        }
+        .botones-edicion-receta {
+            max-height: 30px;
+            margin-top: 0.5em;
+        }
+    }
+}
+
+.editText#audioReceta {
+    margin-right: 20px;
+}
+.logo-empresa {
+    display: block;
+    height: 150px;
+    width: 100%;
+    text-align: center;
+    img {
+        width: 120px;
+        height: auto;
+        border-radius: 20px;
+    }
+}

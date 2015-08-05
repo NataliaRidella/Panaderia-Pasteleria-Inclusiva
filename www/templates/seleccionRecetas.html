@@ -1,0 +1,15 @@
+<ion-view title="Selecci&oacute;n de Receta">
+  <ion-content class="seleccion-content" has-header="true" has-footer="true" has-bouncing="false">
+        <ion-list class="list option-list">
+          <ion-item ng-repeat="receta in recetas" type="item button-selection" href="#/tab/receta/{{receta.idReceta}}" title="{{receta.name}}" >
+                <div class="pic-receta" style="background-image:url({{receta.imagenPortada}})"></div>
+                <h3>{{receta.name}}</h3>
+          </ion-item>
+        </ion-list>
+  </ion-content>
+  <ion-footer-bar  class="bar bar-footer button-bar">
+    <div class="botones-footer center-text">
+      <button class="button button-energized" ng-click="cancelar()">Cancelar</button>
+    </div>
+  </ion-footer-bar>
+</ion-view>

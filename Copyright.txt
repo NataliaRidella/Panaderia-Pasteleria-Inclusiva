@@ -1,0 +1,20 @@
+/*
+Curso Básico de Panadería
+
+Proyecto desarrollado en el marco de la materia Proyecto Final de la carrera de Ingeniería en Sistemas de Información, Facultad Regional Buenos Aires, Universidad Tecnológica Nacional
+
+Año 2014
+Integrantes del equipo:
+
+Chehuan, Josefina
+D'Ambrosio, Alejandro
+De Benito, Julián
+Hourcade, Lucas
+Snieg, Darío
+Tubío, Federico
+
+Tutores:
+Suasnábar, María Julia
+Rolando, Melany
+
+*/

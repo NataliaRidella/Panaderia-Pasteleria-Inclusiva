@@ -1,0 +1,18 @@
+<ion-view title="Revision de datos">
+    <ion-header-bar class="bar bar-subheader subheader">
+        <a class="button button-energized button-small botones-edicion-receta" href="#/tab/account/false">Volver</a>
+        <button ng-click="inicializarDatos()" class="button button-positive button-small botones-edicion-receta">Inicializar Datos</button>
+    </ion-header-bar>
+    <ion-content has-header="true" has-subheader="true" padding="true" has-bouncing="false">
+            <div data-tap-disabled="true" class="item-divider item-title">Usuarios</div>
+            <div id="usuarios" class="gridStyle default" ng-grid="usuariosOptions"></div>
+            <div data-tap-disabled="true" class="item-divider item-title">Recetas</div>
+            <div id="recetas" class="gridStyle default" ng-grid="recetasOptions"></div>
+            <div data-tap-disabled="true" class="item-divider item-title">Pasos</div>
+            <div id="pasosRecetas" class="gridStyle default" ng-grid="pasosRecetasOptions"></div>
+            <div data-tap-disabled="true" class="item-divider item-title">Estadisticas</div>
+            <div id="estadisticas" class="gridStyle default" ng-grid="estadisticasOptions"></div>
+			<div data-tap-disabled="true" class="item-divider item-title">Unidades</div>
+            <div id="unidades" class="gridStyle default" ng-grid="unidadesOptions"></div>
+    </ion-content>
+</ion-view>

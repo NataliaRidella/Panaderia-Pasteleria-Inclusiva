@@ -1,0 +1,30 @@
+<ion-view title="Opciones de Administraci&oacute;n">
+  <ion-content class="has-header" has-bouncing="false">
+    <ion-list class="can-swipe no-background" type="card" >
+      <ion-item type="item-text-wrap" class="item-texto-visible item-admin" ng-href="#/tab/friends" target="_self" href="#/tab/friends">
+        <i class="ion-android-user-menu padding"></i>
+	    Edici&oacute;n de Perfiles
+      </ion-item>
+	  <ion-item type="item-text-wrap" class="item-texto-visible item-admin" ng-href="#/tab/editarReceta">
+        <i class="ion-ios7-compose-outline padding"></i>
+        Administrar Recetas
+      </ion-item>
+	  <ion-item type="item-text-wrap" class="item-texto-visible item-admin" href="#/tab/estadisticas">
+        <i class="ion-ios7-pulse-strong padding"></i>
+        Consultar Estad&iacute;sticas
+      </ion-item>
+	  <ion-item type="item-text-wrap" class="item-texto-visible item-admin" href="#/tab/datos" ng-show="loginMaster">
+        <i class="ion-android-storage padding"></i>
+        Consulta de Datos
+      </ion-item>
+	  <ion-item type="item-text-wrap" class="item-texto-visible item-admin" href="#/tab/about">
+        <i class="ion-information padding"></i>
+        Acerca de la aplicaci&oacute;n
+      </ion-item>
+	  <ion-item type="item-text-wrap" class="item-texto-visible item-admin item-salir" href="#" ng-click="logOutAdmin()">
+        <i class="ion-log-out padding"></i>
+        Salir
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

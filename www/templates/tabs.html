@@ -1,0 +1,39 @@
+<!--
+  Create tabs with an icon and label, using the tabs-positive style. 
+  Each tab's child <ion-nav-view> directive will have its own 
+  navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-icon-top">
+
+  <ion-tab title="Inicio" icon="icon ion-home" href="#/tab/dash" hidden="{{adminLoggedIn || recetaEnCurso}}">
+    <ion-nav-view name="tab-dash"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="administración" icon="icon ion-gear-b" ng-click="loginAdmin()" hidden="{{adminLoggedIn || recetaEnCurso}}">
+    <ion-nav-view name="tab-account"></ion-nav-view>
+  </ion-tab>
+
+    <!-- Solapas de desarrollo -->  
+  <ion-tab title="Friends" icon="icon ion-android-user-menu" href="#/tab/friends" hidden="{{config.isProduction}}">
+    <ion-nav-view name="tab-friends"></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="Modalidad" icon="icon ion-android-share" href="#/tab/modalidad" hidden="{{config.isProduction}}">
+    <ion-nav-view name="modalidad"></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="SeleccionRecetas" icon="icon ion-ios7-keypad" href="#/tab/seleccionRecetas" hidden="{{config.isProduction}}">
+    <ion-nav-view name="seleccionRecetas"></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="Receta" icon="icon ion-android-note" href="#/tab/receta" hidden="{{config.isProduction}}">
+    <ion-nav-view name="receta"></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="Estadisticas" icon="icon ion-ios7-pulse-strong" href="#/tab/estadisticas" hidden="{{config.isProduction}}">
+    <ion-nav-view name="estadisticas"></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="Datos" icon="icon ion-android-storage" href="#/tab/datos" hidden="{{config.isProduction}}">
+    <ion-nav-view name="datos"></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="Acerca de" icon="icon ion-information" href="#/tab/about" hidden="{{config.isProduction}}">
+    <ion-nav-view name="about"></ion-nav-view>
+  </ion-tab>
+<!-- -->
+</ion-tabs>

@@ -1,0 +1,81 @@
+<ion-view title="Receta: {{pasosreceta[pasoActual].name}}">
+<ion-content class="receta-content" has-header="true" has-footer="true" has-bouncing="false" locking="true" scroll="true" direction="y" start-y="0">
+    <div ng-show="!MostrarFelicitaciones && !MostrarCantidad && MostrarPaso" class="paso-receta">
+        <div class="titulo-paso">
+          <h2>{{pasosreceta[pasoActual].titulo}}</h2>
+        </div>
+        <div class="centro-paso">
+            <div class="imagen-paso padding">
+                <div class="pic-receta-paso" style="background-image:url({{pasosreceta[pasoActual].imagen}});"></div>
+                <div class="botones-audio" ng-show="config.appSound">
+                    <span>Escuch&aacute; este paso</span>
+                    <audio id="player"></audio>
+                    <button class="button button-large button-clear ion-play" title="reproducir" ng-click="reproducir(pasosreceta[pasoActual].audio);" ng-hide="playing"></button>
+                    <button class="button button-large button-clear ion-stop" title="parar" ng-click="parar();" ng-show="playing"></button>
+                </div>
+                <div class="texto-paso">
+                    <p>{{pasosreceta[pasoActual].descripcion}}</p>
+                    <p ng-show="pasosreceta[pasoActual].cantidad">{{cantidadPaso}} {{unidadPaso}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="MostrarFelicitaciones && !MostrarCantidad && !MostrarPaso" class="paso-receta final">
+        <h2>¡¡¡Felicitaciones!!!</h2>
+        <img src="img/felicitaciones3.gif" width="280px" class="padding-left">
+        <h3>Terminaste la receta de {{pasosreceta[pasoActual].name}} </h3>
+        <div class="imagen-paso padding">
+          <div class="pic-receta-final" style="background-image:url({{pasosreceta[pasoActual].imagenPortada}});"></div>
+        </div>
+    </div>
+    <div ng-show="!MostrarFelicitaciones && MostrarCantidad && !MostrarPaso" class="paso-receta">
+        <!--<form>-->
+            <div class="imagen-paso padding portada">
+                <div class="wrapper-paso-receta">
+                    <!--<h2>Ingrese la cantidad de {{pasosreceta[pasoActual].name}} que desea fabricar</h2>-->
+                    <h2>{{tituloPortadaReceta}}</h2>
+                    <div class="row">
+                        <div class="col">
+                          <div class="pic-receta-paso" style="background-image:url({{pasosreceta[pasoActual].imagenPortada}});"></div>
+
+                        </div>
+                        <div class="col texto-portada">
+                            <label class="item item-stacked-label">
+                                <div class="input-label fixed-label">Cantidad a realizar</div>
+                            </label>
+                            <select class="q-select" ng-options="cantidad for cantidad in cantidadesArray" ng-model="cantidadAPreparar" required="required" name="cantidadAPreparar" placeholder="Cantidad a realizar">Seleccione una cantidad</select>
+                            <div id="botones" class="separacion-botones">
+                                <button href="javascript:void(0)" ng-click="cancelarReceta()"  class="button button-energized boton-receta">Cancelar</button>
+                                <button type="button" class="button button-energizedblue boton-receta" ng-click="comenzarReceta(cantidadAPreparar)">¡Comenzar Receta!</button>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+           </div>
+        <!--</form>-->
+    </div>
+  </ion-content>
+    <ion-footer-bar class="bar bar-footer button-bar pie-paso has-tabs" ng-show="!MostrarCantidad" side="center">
+        <!--footer Paso de receta-->
+        <div class="buttons" ng-show="!MostrarFelicitaciones && !MostrarCantidad && MostrarPaso" >
+            <button class="button button-energizedblue ion-reply" title="anterior" ng-click="pasoAnterior()">anterior</button>
+        </div>
+        
+        <div class="botones-footer center-text pie-centro" ng-show="!MostrarFelicitaciones && !MostrarCantidad" >
+            <button class="button button-energized boton-salir" ng-click="cancelarReceta()">Salir de Receta</button>
+            <!--ng-show="!MostrarFelicitaciones && !MostrarCantidad" -->
+        </div>
+        <div class="buttons pull-right" ng-show="!MostrarFelicitaciones && !MostrarCantidad && MostrarPaso" >
+            <button class="button button-energizedblue ion-forward icon-right padding-left" title="siguiente" ng-click="siguientePaso()">siguiente</button>
+        </div>
+        <!--FIN footer Paso de receta-->
+        <!--footer FINAL de receta-->
+        <div class="botones-footer center-text" ng-show="MostrarFelicitaciones && !MostrarCantidad && !MostrarPaso">
+            <!--<div class="center">-->
+                <button href="javascript:void(0)" ng-click="volverModalidad()" class="button button-energizedblue">Hacer otra receta?</button>
+                <button href="javascript:void(0)" ng-click="volverInicio()" class="button button-energizedblue">Inicio</button>
+            <!--</div>-->
+        </div>
+        <!--FIN footer FINAL de receta-->
+    </ion-footer-bar>
+</ion-view>

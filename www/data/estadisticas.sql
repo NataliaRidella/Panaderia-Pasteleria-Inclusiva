@@ -1,0 +1,1 @@
+CREATE TABLE Estadisticas (idEstadistica INTEGER PRIMARY KEY AUTOINCREMENT, idReceta INTEGER, idPaso INTEGER, inicio DATETIME, fin DATETIME);

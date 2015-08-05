@@ -1,0 +1,189 @@
+<ion-view title={{titulo}}>
+  <ion-content class="edicion-receta-content" has-header="true" has-footer="true" has-bouncing="false" locking="true" scroll="true" start-y="0">
+    <!--div de edición de portada de receta-->
+    <div ng-show="MostrarPortada && !MostrarPasos  && !agregarPaso" class="paso-receta">
+        <form>
+            <label class="item item-input">
+                <div id="imagen" class="pic-receta-paso-edicion"style="background-image:url({{imagen}})"></div>
+                <label ng-show="!edicionReceta && nuevaReceta" ng-click="getPhoto()" class="button button-balanced button-cambiarimagen botones-edicion-receta botones-edicion-receta botones-default padding-left">Agregar Imagen</label>
+                <label ng-show="edicionReceta && !nuevaReceta" ng-click="getPhoto()" class="button button-royal button-cambiarimagen botones-edicion-receta botones-edicion-receta botones-default padding-left">Cambiar Imagen</label>
+            </label>
+            
+
+            <label class="item item-input medium" title="Nombre Receta">
+              <span class="input-label fixed-label">Nombre Receta</span>
+                <input class="editText center-text" type="text" ng-model="nombre" value="nombre" id="nombre" required />
+            </label>
+            
+            <label class="item item-input" title="Tipo Receta">
+              <span class="input-label fixed-label">Tipo de Receta</span>
+                <select ng-options="receta.tipoReceta for receta in tiposDeRecetaArray track by receta.id" ng-model="tiposDeReceta" required="required" name="tiposDeReceta" id="tipoDeReceta"></select>
+            </label>
+            
+            <label class="item item-input" title="Cantidad a fabricar">
+                <span class="input-label fixed-label">Cantidad m&iacute;nima</span>
+                <input class="editNumber" type="number" ng-model="CantMinima" value="CantMinima" id="CantMinima" required min="0"/>
+            </label>
+            <div class="botonera" ng-show="edicionReceta && !nuevaReceta && !agregarPaso">
+                <button type="button" class="button button-positive button-small botones-edicion-receta" ng-click="grabarEdicionPortadaReceta()">
+                    Grabar
+                </button>
+            </div>
+        </form>
+        <br/>
+        <br/>
+    </div>
+    <!--div de edición de paso de receta-->
+    <div ng-show="!MostrarPortada && MostrarPasos && !agregarPaso" class="paso-receta">
+        <form>
+            <label class="item item-input" title="Nombre Receta">
+              <span class="input-label-paso" value="nombrePaso">{{nombrePaso}}</span>
+            </label>
+            <!--<label class="item item-input" title="Imagen del Paso">
+            </label>-->
+            <label class="item item-input">
+                <div  class="pic-receta-paso-edicion" id="imagenPaso" style="background-image:url({{imagenPaso}});"></div> <!--ng-hide="!mostrarImagen"-->
+                <label ng-show="!edicionReceta && nuevaReceta" ng-click="getPhoto()" class="button button-balanced button-cambiarimagen botones-edicion-receta botones-edicion-receta botones-default padding-left">Agregar Imagen</label>
+                <label ng-show="edicionReceta && !nuevaReceta" ng-click="getPhoto()" class="button button-royal button-cambiarimagen botones-edicion-receta botones-edicion-receta botones-default padding-left">Cambiar Imagen</label>
+            </label>
+            <label class="item item-input medium" title="Titulo del paso">
+              <span class="input-label fixed-label">Titulo</span>
+              <input class="editText center-text" type="text" ng-model="Titulo"  value="{{Titulo}}" id="Titulo" required/>
+            </label>
+            
+            <label class="item item-input big" title="Descripcion">
+              <span class="input-label fixed-label">Descripci&oacute;n</span>
+              <textarea class="editTextArea" ng-model="Descripcion" value="{{Descripcion}}" id="Descripcion" required ></textarea>
+            </label>
+            <label class="item item-input" title="Cantidad">
+              <span class="input-label fixed-label">Cantidad</span>
+                <input class="editNumber" type="number" ng-model="Cantidad" value="{{Cantidad}}" id="Cantidad" required min="0"/>
+            </label>
+            <div ng-show="CantidadNuevoPaso != ''" >
+                <label class="item item-input" title="Unidad de Medida">
+                  <span class="input-label fixed-label">Unidad de Medida</span>
+                  <select ng-options="unidadMedida.descripcion for unidadMedida in tiposDeUnidadMedidaArray track by unidadMedida.descripcion" ng-model="unidadDeMedida" required="required" name="unidadDeMedida" id="unidadDeMedida"/>
+                </label>
+            </div>
+            
+            <label class="item item-input medium" title="Audio" id="Audio">
+                <span class="input-label fixed-label">Audio</span>
+                <input ng-show="edicionReceta && !nuevaReceta" class="editText" type="text" id="audioReceta" ng-model="audioReceta" disabled/>
+                <label ng-show="!edicionReceta && nuevaReceta" ng-click="fileChoose()" class="button button-balanced botones-edicion-receta padding-left">Agregar</label>
+                <label ng-show="edicionReceta && !nuevaReceta" ng-click="fileChoose()" class="button button-royal botones-edicion-receta padding-left">Cambiar</label>
+            </label>
+            <div class="botonera" ng-show="edicionReceta && !nuevaReceta && !agregarPaso">
+                <button type="button" class="button icon-right button-assertive button-small botones-edicion-receta" ng-click="EliminarPasosReceta()" title="Eliminar paso">
+                    Eliminar paso
+                </button>
+                <button type="button" class="button icon-right button-balanced button-small botones-edicion-receta" ng-click="AgregarPasosReceta()" title="Agregar paso">
+                    Agregar paso
+                </button>
+                <button type="button" class="button button-positive button-small botones-edicion-receta" ng-click="grabarEdicionPasosReceta()" title="Grabar Edicion">
+                    Grabar
+                </button>
+            </div>
+
+        </form>
+    </div>
+    <!--div de creación de paso de receta-->
+    <div ng-show="!MostrarPortada && !MostrarPasos && agregarPaso" class="paso-receta">
+        <form>
+            <label class="item item-input" title="Nombre Receta">
+              <span class="input-label-paso" value="nombrePaso">{{nombrePaso}}</span>
+            </label>
+            <!--<label class="item item-input" title="Imagen del Paso">
+            </label>-->
+            <label class="item item-input">
+                <div ng-hide="!mostrarImagenPasoNuevo" class="pic-receta-paso-edicion" id="imagenPasoNuevo" style="background-image:url({{imagenPasoNuevo}});"></div>
+                <label ng-click="getPhoto()" class="button button-balanced button-cambiarimagen botones-edicion-receta botones-default padding-left">Agregar Imagen</label>
+            </label>
+            <label class="item item-input medium" title="Titulo del paso">
+              <span class="input-label fixed-label">Titulo</span>
+              <input class="editText center-text" type="text" ng-model="TituloNuevoPaso"  value="{{TituloNuevoPaso}}" id="TituloNuevoPaso" required />
+            </label>
+            
+            <label class="item item-input" title="Descripcion">
+              <span class="input-label fixed-label">Descripci&oacute;n</span>
+              <textarea class="editTextArea" type="text" ng-model="DescripcionNuevoPaso" value="{{DescripcionNuevoPaso}}" id="DescripcionNuevoPaso" required ></textarea>
+            </label>
+            <label class="item item-input" title="Cantidad">
+              <span class="input-label fixed-label">Cantidad</span>
+                <input class="editNumber" type="number" ng-model="CantidadNuevoPaso" value="{{CantidadNuevoPaso}}" id="CantidadNuevoPaso" required/>
+            </label>
+            
+            <label ng-show="CantidadNuevoPaso != ''" class="item item-input" title="Unidad de Medida">
+              <span class="input-label fixed-label">Unidad de Medida</span>
+              <select ng-options="unidadMedida.descripcion for unidadMedida in tiposDeUnidadMedidaArray track by unidadMedida.descripcion" ng-model="unidadDeMedidaNuevoPaso" required="required" name="unidadDeMedidaNuevoPaso" id="unidadDeMedidaNuevoPaso"/>
+            </label>
+            <label class="item item-input medium" title="Audio">
+                <span class="input-label fixed-label">Audio</span>
+                <input ng-show="edicionReceta && !nuevaReceta" class="editText" type="text" id="audioRecetaPasoNuevo" ng-model="audioRecetaPasoNuevo" disabled/>
+                <label ng-show="!edicionReceta && nuevaReceta" ng-click="fileChoose()" class="button button-balanced botones-edicion-receta padding-left">Agregar</label>
+                <label ng-show="edicionReceta && !nuevaReceta" ng-click="fileChoose()" class="button button-royal botones-edicion-receta padding-left">Cambiar</label>
+            </label>
+        
+        </form>
+    </div>
+  </ion-content>
+    <ion-footer-bar class="bar bar-footer button-bar edicion-footer" ng-show="MostrarPortada && !MostrarPasos" side="center">
+        <div ng-show="edicionReceta && !nuevaReceta && !agregarPaso"> <!--para edicion muestro este div-->
+            <button type="button" ng-click="cancelarEdicionReceta()" class="button button-energized botones-edicion-receta">
+                cancelar
+            </button>
+            <button type="button" class="button icon-right ion-chevron-right button-positive botones-edicion-receta" ng-click="finalizarEdicionPortadaReceta()">
+                Finalizar
+            </button>
+            <!--button class="button button-positive botones-edicion-receta ion-reply" title="anterior" ng-click="pasoAnterior()">Anterior</button-->
+            <button class="button button-energizedblue botones-edicion-receta ion-forward icon-right pull-right" title="siguiente" ng-click="siguientePaso()">siguiente</button>
+        </div>
+        <div ng-show="!edicionReceta && nuevaReceta"> <!--para nueva receta muestro este div-->
+            <button type="button" ng-click="cancelarPasoInsertReceta()"  class="button button-energized botones-edicion-receta">
+                cancelar
+            </button>
+            <button type="button" class="button icon-right ion-chevron-right button-positive botones-edicion-receta" ng-click="grabarPortadaReceta()">
+                Grabar Receta
+            </button>
+        </div>        
+    </ion-footer-bar>        
+    <ion-footer-bar class="bar bar-footer button-bar edicion-footer" ng-show="!MostrarPortada && (MostrarPasos || agregarPaso)" side="center">
+        <div ng-show="edicionReceta && !nuevaReceta && !agregarPaso"> <!--para edicion muestro este div-->
+            <button type="button" ng-click="cancelarEdicionReceta()" class="button button-energized botones-edicion-receta" title="Cancelar Edicion">
+                cancelar
+            </button>
+            <!--Aca estaba la botonera-->
+            <button type="button" class="button icon-right ion-chevron-right button-positive button-small botones-edicion-receta " ng-click="finalizarEdicionPasosReceta()" title="Grabar y finalizar edicion">
+                    Finalizar
+                </button>
+            <!--button class="button button-positive botones-edicion-receta ion-reply" title="anterior" ng-click="pasoAnterior()">Anterior</button-->
+            <button class="button button-energizedblue ion-forward icon-right pull-right" title="siguiente" ng-click="siguientePaso()">siguiente</button>
+        </div>
+        <div ng-show="!edicionReceta && nuevaReceta && !agregarPaso" class="row row-centerpadding-left"> <!-- Botones para la nueva receta -->
+            <div>
+                <button type="button" ng-click="cancelarPasoInsertReceta()"  class="button button-energized botones-edicion-receta" title="Cancelar alta de receta">
+                    cancelar
+                </button>
+                <button type="button" class="button icon-right ion-chevron-right button-positive botones-edicion-receta" ng-click="grabarPasoReceta()" title="Grabar nueva receta">
+                    Grabar Paso
+                </button>
+                <button ng-show="!edicionReceta && nuevaReceta && !MostrarPortada && MostrarPasos" type="button" class="button icon-right ion-chevron-right button-positive botones-edicion-receta" ng-click="finalizarReceta()" title="Finalizar alta de receta">
+                    Finalizar
+                </button>
+                <!-- SOLO PARA PROBAR 
+                <button type="submit" class="button icon-right ion-chevron-right button-positive botones-edicion-receta" ng-click="reinicioValores()">
+                    blanquear datos
+                </button>-->
+            </div>
+        </div>
+        <div ng-show="!MostrarPortada && !MostrarPasos && agregarPaso" class="row row-centerpadding-left"> <!-- Botones para la nueva receta -->
+            <div>
+                <button type="button" ng-click="cancelarNuevoPasoReceta()"  class="button button-energized botones-edicion-receta" title="Cancelar nuevo paso de receta">
+                    Cancelar nuevo Paso
+                </button>
+                <button type="button" class="button icon-right ion-chevron-right button-positive botones-edicion-receta" ng-click="grabarNuevoPasoReceta()" title="Grabar nuevo paso de receta">
+                    Grabar nuevo Paso
+                </button>
+            </div>
+        </div>
+    </ion-footer-bar>    
+</ion-view>

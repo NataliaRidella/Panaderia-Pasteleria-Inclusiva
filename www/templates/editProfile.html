@@ -1,0 +1,11 @@
+<!--
+  This template loads for the 'editProfile' state (app.js)
+  'profileType' is a $scope variable created in the ProfileCtrl controller (controllers.js)
+  The ProfileCtrl pulls data from the Profile service (service.js)
+  The Profile service returns profile data of user 'profileType'
+-->
+<ion-view title="{{profileType}}">
+  <ion-content has-header="true" padding="true">
+    {{profile.name}}
+  </ion-content>
+</ion-view>

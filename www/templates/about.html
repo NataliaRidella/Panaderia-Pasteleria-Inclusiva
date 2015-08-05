@@ -1,0 +1,38 @@
+<ion-view title="Acerca de {{data.nombreApp}}">
+    <ion-header-bar class="bar bar-subheader subheader">
+        <a class="button button-small button-energized botones-edicion-receta" href="#/tab/account/false">Volver</a>
+        <img class="little-logo" src="img/logoPI.png">
+    </ion-header-bar>
+    <ion-content class="contents about-content padding-left" has-header="true" hast-subheader="true" padding="true" has-bouncing="false">
+        <h2>{{data.header}}</h2>
+        <h3 class="italic">{{data.header2}}</h3>
+        <p>{{data.texto}}</p>
+        <h3 class="center-text italic">El equipo {{data.empresa.nombre}}</h3>
+        <div class="logo-empresa">
+            <img ng-src="{{data.empresa.imagen}}" title="{{data.empresa.nombre}}">
+        </div>
+        <!--<p class="titulo-integrantes padding-left">Integrantes</p>-->
+        <div class="center-text">
+            <div class="integrantes padding"
+                    ng-repeat="intimg in data.integrantes" title="">
+                <div class="integrante-img" title="">
+                    <img ng-src="{{intimg.data}}" title="{{intimg.nombre}}">
+                </div>
+                <span class="center-text">{{intimg.nombre}}</span>
+            </div>
+        </div>
+        <p class="titulo-agradecimientos padding-left">Agradecimientos</p>
+        <div class="center-text">
+            <div ng-repeat="ag in data.agradecimientos" title="">
+                <p class="italic">{{ag.texto}}</p>
+                    <div class="agradecimiento padding"
+                            ng-repeat="image in ag.imagenes" title="">
+                        <div class="agradecimiento-img" title="">
+                            <img ng-src="{{image.data}}" title="{{image.titulo}}">
+                        </div>  
+                        <!--<span class="center-text padding-right">{{image.titulo}}</span>-->
+                    </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

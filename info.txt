@@ -1,0 +1,118 @@
+Node version: v0.10.25
+
+Cordova version: 4.1.2
+
+Config.xml file: 
+
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="ar.edu.utn.frba.tbdsolutions.panaderiaInclusiva" version="0.6.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Curso básico de panadería</name>
+    <description>
+        Curso básico de panadería
+    </description>
+    <author email="info@tbdsolutions.com.ar" href="http://tbdsolutions.com.ar/">
+      TBD Solutions
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+
+    <!--App Icon & Splashscreen Definitions -->
+    <platform name="android">
+        <icon src="resources/android/drawable-ldpi/icon.png" density="ldpi" />
+        <icon src="resources/android/drawable-mdpi/icon.png" density="mdpi" />
+        <icon src="resources/android/drawable-hdpi/icon.png" density="hdpi" />
+        <icon src="resources/android/drawable-xhdpi/icon.png" density="xhdpi" />
+        
+        <splash src="resources/android/drawable-land-ldpi/screen.png" density="land-ldpi" />
+        <splash src="resources/android/drawable-land-mdpi/screen.png" density="land-mdpi" />
+        <splash src="resources/android/drawable-land-hdpi/screen.png" density="land-hdpi" />
+        <splash src="resources/android/drawable-land-xhdpi/screen.png" density="land-xhdpi" />
+
+        <splash src="resources/android/drawable-port-ldpi/screen.png" density="port-ldpi" />
+        <splash src="resources/android/drawable-port-mdpi/screen.png" density="port-mdpi" />
+        <splash src="resources/android/drawable-port-hdpi/screen.png" density="port-hdpi" />
+        <splash src="resources/android/drawable-port-xhdpi/screen.png" density="port-xhdpi" />
+                
+    </platform>
+     <!-- Default icon & SplashScreen-->
+    <icon src="resources/icon.png" width="57" height="57" />
+    <splash src="resources/screen.png"/>
+    <preference name="SplashScreen" value="resources/screen.png" />
+     <!-- -->
+    <preference name="SplashScreenDelay" value="3000" />
+    <!-- -->
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    
+    <platform name="ios">
+        <preference name="iosExtraFilesystems" value="library,library-nosync,documents,documents-nosync,cache,bundle,root" />
+        <feature name="File">
+            <param name="ios-package" value="CDVFile" />
+        </feature>
+        <feature name="FileTransfer">
+            <param name="ios-package" value="CDVFileTransfer" />
+        </feature>
+<!--        <feature name="InAppBrowser">
+            <param name="ios-package" value="CDVInAppBrowser" />
+        </feature>-->
+    </platform>
+    <platform name="android">
+        <preference name="AndroidExtraFilesystems" value="files,files-external,documents,sdcard,cache,cache-external,root" />
+        <feature name="File">
+            <param name="android-package" value="org.apache.cordova.FileUtils" />
+        </feature>
+        <feature name="FileTransfer">
+            <param name="android-package" value="org.apache.cordova.FileTransfer" />
+        </feature>
+<!--        <feature name="InAppBrowser">
+            <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+        </feature>-->
+    </platform>
+    
+    <!-- Don't store local date in an iCloud backup. Turn this to "cloud" to enable storage 
+         to be sent to iCloud. Note: enabling this could result in Apple rejecting your app.
+    -->
+    <preference name="BackupWebStorage" value="none" />
+
+    <feature name="StatusBar">
+      <param name="ios-package" value="CDVStatusBar" onload="true" />
+    </feature>
+
+</widget>
+
+
+Plugins: 
+
+com.megster.cordova.FileChooser,org.apache.cordova.camera,org.apache.cordova.file,org.apache.cordova.media
+
+Android platform:
+
+Available Android targets:
+----------
+id: 1 or "android-19"
+     Name: Android 4.4.2
+     Type: Platform
+     API level: 19
+     Revision: 3
+     Skins: HVGA, WXGA720, WXGA800, WVGA800 (default), WXGA800-7in, WVGA854, QVGA, WQVGA400, WQVGA432, WSVGA
+ Tag/ABIs : default/armeabi-v7a
+----------
+id: 2 or "Google Inc.:Google APIs:19"
+     Name: Google APIs
+     Type: Add-On
+     Vendor: Google Inc.
+     Revision: 4
+     Description: Android + Google APIs
+     Based on Android 4.4.2 (API level 19)
+     Libraries:
+      * com.google.android.media.effects (effects.jar)
+          Collection of video effects
+      * com.android.future.usb.accessory (usb.jar)
+          API for USB Accessories
+      * com.google.android.maps (maps.jar)
+          API for Google Maps
+     Skins: WVGA800 (default), WXGA800-7in, WXGA800, WQVGA432, WXGA720, HVGA, WSVGA, WQVGA400, QVGA, WVGA854
+ Tag/ABIs : default/armeabi-v7a
+

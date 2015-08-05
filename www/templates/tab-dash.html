@@ -1,0 +1,15 @@
+<ion-view title="Inicio">
+  <ion-content class="has-header padding-left contents dash-content" has-footer="true" has-bouncing="false">
+    <h2 class="bar-stable padding-left dash-header">¡Bienvenid{{currentUser.gender=='F'?'a':'o'}} {{currentUser.name}}!</h2>
+    <div class="dash-content padding">
+        <div class="circle-content" style="background-image:url({{currentUser.thumbnail}});"></div>
+    </div>
+  </ion-content>
+  <ion-footer-bar class="bar bar-footer button-bar dash-footer">
+    <div class="botones-footer center-text">
+        <a href="#/tab/modalidad" class="button button-energizedblue">¡Comenzar!</a>
+    </div>
+    <!--<button ui.sref="tab.modalidad" class="button button-energizedblue center">¡Comenzar!</button>-->
+
+  </ion-footer-bar>
+</ion-view>

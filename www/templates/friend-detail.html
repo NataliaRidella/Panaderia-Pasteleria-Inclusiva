@@ -1,0 +1,72 @@
+<ion-view title="{{friend.name}}">
+  <ion-content class="edicion-perfil-content" has-header="true" padding="true" title="Datos del usuario" has-bouncing="false">
+    <form>
+        <div class="col-100">
+            <div class="row">
+                <div class="wrapper" title="Foto del usuario" ng-click="getPhoto()">
+                    <img ng-src="{{friend.photo}}" class="padding-left photo-face"/>
+                  <div class="imgOverlayLink" title="Cambiar foto">
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col inline-block">
+                      <span ng-if="friend.userType=='A'" class="user-type">Administrador</span>
+                      <span ng-if="friend.userType=='I'" class="user-type">Invitado</span>
+                    </div>
+                    <div class="col item-sexo" title="sexo">
+                        <label class="item item-radio item-sexo">
+                            <input type="radio" name="sexo" ng-model="friend.gender" value="F">
+                                <div class="item-content">F</div>
+                            <i class="radio-icon ion-ios7-paw"></i>
+                        </label>
+                        <label class="item item-radio item-sexo">
+                            <input type="radio" name="sexo" ng-model="friend.gender" value="M">
+                                <div class="item-content">M</div>
+                            <i class="radio-icon ion-ios7-paw"></i>
+                        </label>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="row">
+                <label class="item item-input medium" id="nombre" title="Nombre del usuario">
+                  <span class="input-label fixed-label">Nombre de Usuario</span>
+                  <input class="editText" type="text" value="{{friend.name}}" title="{{friend.name}}" ng-model="friend.name" />
+                </label>
+            </div>
+            <div class="row">
+                <label class="item item-input medium" title="Debe ingresar la Contrase&ntilde;a actual para modificarla" ng-if="friend.userType=='A'" hidden="true">
+                  <span class="input-label fixed-label">Contrase&ntilde;a Actual</span>
+                  <input class="editText" id="pass" type="password"/>
+                </label>
+            </div>
+            <div class="row">
+                <label class="item item-input medium" title="Nueva contrase&ntilde;a" ng-if="friend.userType=='A'" hidden="true">
+                  <span class="input-label fixed-label">Nueva contrase&ntilde;a</span>
+                  <input class="editText" id="newpass1" type="password" title="{{newpass1}}" ng-model="newpass1"  ngMinlength="3"/>
+                </label>
+            </div>
+            <div class="row">
+                <label class="item item-input medium" title="Repita la contrase&ntilde;a" ng-if="friend.userType=='A'" hidden="true">
+                  <span class="input-label fixed-label">Repita la contrase&ntilde;a</span>
+                  <input class="editText" id="newpass2" type="password" title="{{newpass2}}" ng-model="newpass2"  ngMinlength="3"/>
+                </label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="button button-small button-positive icon-right ion-checkmark-circled" ng-click="guardarDatos()">
+                        Guardar
+                    </button>
+                    <span class="padding"></span>
+                    <button class="button button-small button-assertive icon-right ion-close-circled" ng-click="cancelarEdicion();">
+                        Cancelar
+                    </button>
+                </div>
+                <!--<div class="col">
+                    &nbsp;
+                </div>-->
+            </div>
+        </div>
+    </form>
+  </ion-content>
+</ion-view>

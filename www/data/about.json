@@ -1,0 +1,25 @@
+{
+    "nombreApp": "Panadería",
+    "header": "Curso Básico de Panadería",
+    "header2": "Una herramienta para todos",
+    "texto": "Esta aplicación fue desarrollada en el contexto de la materia Proyecto Final, exigencia necesaria para cumplimentar la currícula de la carrera de Ingeniería en Sistemas de Información. Facultad Regional Buenos Aires. Universidad Tecnológica Nacional.",
+        "empresa": {"nombre": "TBD", "imagen": "img/logoTBD_circular.png"},
+    "integrantes": [
+                    {"data": "img/fotoJC.jpg", "nombre": "Josefina Chehuan"},
+                    {"data": "img/fotoAAD.jpg", "nombre": "Alejandro D'Ambrosio"},
+                    {"data": "img/fotoJdB.jpg", "nombre": "Julián de Benito"},
+                    {"data": "img/fotoLH.jpg", "nombre": "Lucas Hourcade"},
+                    {"data": "img/fotoDS.jpg", "nombre": "Darío Snieg"},
+                    {"data": "img/fotoFT.jpg", "nombre": "Federico Tubío"}
+                    ],
+    "agradecimientos": [{
+        "texto": "El equipo quiere agradecer el apoyo de: ",
+        "imagenes": [
+                    {"data": "img/logoFRBA.png", "titulo": "UTN - FRBA"},
+                    {"data": "img/logoFN.png", "titulo": "Fundación Nosotros"},
+                    {"data": "img/logoCESSI.png", "titulo": "CESSI"},
+                    {"data": "img/logoDANE.png", "titulo": "Proyecto DANE"}
+                    ]
+    
+    }]
+}
